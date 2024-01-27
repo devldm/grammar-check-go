@@ -1,3 +1,5 @@
+import { grammar } from "@/types/grammar";
+
 async function getData() {
   const res = await fetch(`${process.env.API_BASE_URL}/grammars`);
 
@@ -14,7 +16,7 @@ export default async function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-12 dark:text-white">
       <div className="flex flex-col gap-4 w-full items-center">
-        {data.map((item) => {
+        {data.map((item: grammar) => {
           return (
             <div
               key={item.ID}
