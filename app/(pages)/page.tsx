@@ -6,7 +6,7 @@ export default async function Home() {
   const user: User | null = await currentUser();
 
   return (
-    <main className="flex h-[80vh] flex-col justify-center items-center p-12 dark:text-white">
+    <main className="flex h-[80vh] flex-col justify-center items-center p-6 md:p-12 dark:text-white">
       <div className="w-full md:w-[60%] flex flex-col gap-2 items-center">
         <h1 className="text-5xl font-bold md:text-7xl">GrammarCheck</h1>
         <p className="text-lg italic text-white md:text-xl opacity-60">
@@ -19,7 +19,7 @@ export default async function Home() {
                 Challenges
               </button>
             </Link>
-            <Link href={"/profile"}>
+            <Link href={`/profile/${user?.id}`}>
               <button className="btn btn-secondary rounded-md">Profile</button>
             </Link>
           </SignedIn>

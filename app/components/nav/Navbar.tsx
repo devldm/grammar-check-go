@@ -1,4 +1,4 @@
-import { SignedIn, currentUser } from "@clerk/nextjs";
+import { SignedIn, UserButton, currentUser } from "@clerk/nextjs";
 import { User } from "@clerk/nextjs/server";
 import Link from "next/link";
 
@@ -23,7 +23,9 @@ export default async function AuthdNavbar() {
               Profile
             </Link>
           </li>
-          {/* <ThemeChanger /> */}
+          <li>
+            <UserButton />
+          </li>
         </ul>
 
         <div className="dropdown dropdown-end md:hidden text-xl">
@@ -56,6 +58,9 @@ export default async function AuthdNavbar() {
               <Link className="text-lg" href={`/profile/${user!.id}`}>
                 Profile
               </Link>
+            </li>
+            <li>
+              <UserButton />
             </li>
           </ul>
         </div>
