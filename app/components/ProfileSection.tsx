@@ -13,7 +13,7 @@ export default function ProfileSection(user: { user: User }) {
           height={"60"}
           className="rounded-full"
         />
-        <h1 className="text-xl md:text-4xl">{user.user.username}</h1>
+        <h1 className="text-xl md:text-3xl">{user.user.username}</h1>
       </div>
 
       <SignOutButton>
