@@ -57,13 +57,11 @@ export async function POST(req: Request) {
 
   if (eventType == "user.created") {
     try {
-      console.log(`call fetch with data: ${id}`);
       const createUserInDb = await fetch("http://localhost:8080/v1/user", {
         method: "POST",
         body: JSON.stringify({ ID: id }),
       });
       const userReturn = await createUserInDb.json();
-      console.log(userReturn);
     } catch (err) {
       console.error("Error creating user:", err);
     }
