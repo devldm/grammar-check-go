@@ -32,7 +32,7 @@ export default async function Page({ params }: { params: { id: string } }) {
             >
               <div className="flex items-center gap-1">
                 <Image
-                  src={user?.imageUrl}
+                  src={user?.imageUrl!}
                   alt="user profile image"
                   width={"30"}
                   height={"30"}
