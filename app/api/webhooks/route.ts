@@ -57,7 +57,7 @@ export async function POST(req: Request) {
 
   if (eventType == "user.created") {
     try {
-      const createUserInDb = await fetch("http://localhost:8080/v1/user", {
+      const createUserInDb = await fetch(`${process.env.API_BASE_URL}/user`, {
         method: "POST",
         body: JSON.stringify({ ID: id }),
       });
