@@ -7,15 +7,17 @@ export default async function Home() {
 
   return (
     <main className="flex h-[80vh] flex-col justify-center items-center p-6 md:p-12 dark:text-white">
-      <div className="w-full md:w-[60%] flex flex-col gap-2 items-center">
-        <h1 className="text-5xl font-bold md:text-7xl">GrammarCheck</h1>
+      <div className="w-full md:w-[60%] text-center">
+        <h1 className="text-5xl font-bold break-words md:text-7xl">
+          GrammarCheck
+        </h1>
         <p className="text-lg italic text-white md:text-xl opacity-60">
           Your home for Korean grammar challenges
         </p>
-        <div className="flex gap-4 mt-6">
+        <div className="mt-6">
           <SignedIn>
             <Link href={"/challenges"}>
-              <button className="btn btn-secondary rounded-md">
+              <button className="btn btn-secondary rounded-md mr-4">
                 Challenges
               </button>
             </Link>
@@ -25,7 +27,9 @@ export default async function Home() {
           </SignedIn>
           <SignedOut>
             <Link href={"/sign-in"}>
-              <button className="btn btn-secondary rounded-md">Sign-in</button>
+              <button className="btn btn-secondary rounded-md mr-4">
+                Sign-in
+              </button>
             </Link>
             <Link href={"/sign-up"}>
               <button className="btn btn-secondary rounded-md">Sign-up</button>
