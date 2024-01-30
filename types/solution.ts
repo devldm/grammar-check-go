@@ -7,3 +7,9 @@ export type solution = {
   Solution: string;
   Grammar: string;
 };
+
+export type solutionPost = {
+  solution: FormDataEntryValue;
+  grammar_id: string;
+  user_id: string;
+};

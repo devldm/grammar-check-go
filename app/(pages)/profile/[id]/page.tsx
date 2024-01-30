@@ -32,7 +32,7 @@ export default async function Page({ params }: { params: { id: string } }) {
             return (
               <div
                 key={solution.ID}
-                className="border-2 border-black dark:border-white rounded-lg p-6 max-w-max flex flex-col gap-2"
+                className="border-2 border-black dark:border-white rounded-lg p-6 flex flex-col gap-2"
               >
                 <div className="flex items-center gap-1 flex-wrap">
                   <Image
