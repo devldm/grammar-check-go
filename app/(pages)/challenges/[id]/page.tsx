@@ -5,7 +5,8 @@ import { grammar } from "@/types/grammar";
 import ChallengeForm from "@/app/components/ChallengeForm";
 import { currentUser } from "@clerk/nextjs";
 import { User } from "@clerk/nextjs/server";
-import { solution } from "@/types/solution";
+import { solutionWithUserData } from "@/types/solution";
+import Image from "next/image";
 
 async function getGrammarData(id: string) {
   const res = await fetch(`${process.env.API_BASE_URL}/grammars/${id}`);
@@ -34,10 +35,13 @@ async function getHasSolved(grammarId: string) {
   return await res.json();
 }
 
-async function getSolutions() {
-  const res = await fetch(`${process.env.API_BASE_URL}/solutions?limit=20`, {
-    method: "GET",
-  });
+async function getSolutionsWithUserData(grammarId: string) {
+  const res = await fetch(
+    `${process.env.API_BASE_URL}/solutions/${grammarId}?limit=20`,
+    {
+      method: "GET",
+    }
+  );
 
   if (!res.ok) {
     throw new Error("Failed to fetch data");
@@ -49,8 +53,8 @@ async function getSolutions() {
 export default async function Page({ params }: { params: { id: string } }) {
   const data: grammar = await getGrammarData(params.id);
   const hasSolved = await getHasSolved(data.ID);
-  const solvedSolutions: solution[] =
-    Boolean(hasSolved) && (await getSolutions());
+  const solvedSolutions: solutionWithUserData[] =
+    Boolean(hasSolved) && (await getSolutionsWithUserData(params.id));
 
   return (
     <div className="min-h-[90vh] w-full mx-auto flex flex-col items-center xl:max-w-[60%] p-6">
@@ -63,7 +67,7 @@ export default async function Page({ params }: { params: { id: string } }) {
         <>
           <Spacer height="h-12" />
           <div className="grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-3 w-full">
-            {solvedSolutions.map((solution: solution) => {
+            {solvedSolutions.map((solution: solutionWithUserData) => {
               const dataFromCreatedAt = new Date(solution.CreatedAt);
               const readableDate =
                 dataFromCreatedAt.toLocaleDateString("en-gb");
@@ -73,14 +77,14 @@ export default async function Page({ params }: { params: { id: string } }) {
                   className="border-2 border-black dark:border-white rounded-lg p-6 flex flex-col gap-2"
                 >
                   <div className="flex items-center gap-1 flex-wrap">
-                    {/* <Image
-                    src={user?.imageUrl!}
-                    alt="user profile image"
-                    width={"30"}
-                    height={"30"}
-                    className="rounded-full"
-                  /> */}
-                    {/* <p>{user?.username ?? "user"}</p> */}
+                    <Image
+                      src={solution.ClerkImage}
+                      alt="user profile image"
+                      width={"30"}
+                      height={"30"}
+                      className="rounded-full"
+                    />
+                    <p>{solution.ClerkUsername ?? "user"}</p>
                     <p className="opacity-70 italic">
                       solved {solution.Grammar}
                     </p>

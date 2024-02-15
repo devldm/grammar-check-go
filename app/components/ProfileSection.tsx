@@ -1,24 +1,31 @@
 import { SignOutButton } from "@clerk/nextjs";
-import { User } from "@clerk/nextjs/server";
 import Image from "next/image";
 
-export default function ProfileSection(user: { user: User }) {
+export default function ProfileSection({
+  user,
+  isUserOnOwnProfile,
+}: {
+  user: backendUser;
+  isUserOnOwnProfile: boolean;
+}) {
   return (
     <div className="w-full md:w-[90%] lg:w-[65%] flex items-center justify-between">
       <div className="flex flex-wrap justify-center gap-4 items-center">
         <Image
-          src={user.user.imageUrl}
+          src={user.ClerkImage}
           alt="user profile image"
           width={"60"}
           height={"60"}
           className="rounded-full"
         />
-        <h1 className="text-xl md:text-3xl">{user.user.username}</h1>
+        <h1 className="text-xl md:text-3xl">{user.ClerkUsername}</h1>
       </div>
 
-      <SignOutButton>
-        <button className="btn btn-secondary rounded-md">Sign out</button>
-      </SignOutButton>
+      {isUserOnOwnProfile && (
+        <SignOutButton>
+          <button className="btn btn-secondary rounded-md">Sign out</button>
+        </SignOutButton>
+      )}
     </div>
   );
 }
