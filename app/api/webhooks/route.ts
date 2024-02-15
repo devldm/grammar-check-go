@@ -56,10 +56,19 @@ export async function POST(req: Request) {
   console.log("Webhook body:", body);
 
   if (eventType == "user.created") {
+    const { username } = evt.data;
+    const email = evt.data.email_addresses[0].email_address;
+    const image = evt.data.image_url;
+
     try {
       const createUserInDb = await fetch(`${process.env.API_BASE_URL}/user`, {
         method: "POST",
-        body: JSON.stringify({ ID: id }),
+        body: JSON.stringify({
+          ID: id,
+          username: username,
+          email: email,
+          image: image,
+        }),
       });
       const userReturn = await createUserInDb.json();
     } catch (err) {
