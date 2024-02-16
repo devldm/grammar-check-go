@@ -4,7 +4,9 @@ import { grammar } from "@/types/grammar";
 import Link from "next/link";
 
 async function getData() {
-  const res = await fetch(`${process.env.API_BASE_URL}/grammars`);
+  const res = await fetch(`${process.env.API_BASE_URL}/grammars`, {
+    method: "GET",
+  });
 
   if (!res.ok) {
     throw new Error("Failed to fetch data");
@@ -14,7 +16,7 @@ async function getData() {
 }
 
 export default async function Page() {
-  const data = await getData();
+  const data: grammar[] = await getData();
   return (
     <main className="flex min-h-[90vh] flex-col items-center p-6 md:p-12 dark:text-white">
       <div className="max-w-max">
