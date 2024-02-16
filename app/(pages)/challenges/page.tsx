@@ -21,13 +21,14 @@ export default async function Page() {
         <h1 className="text-4xl">Challenges</h1>
         <Spacer height="h-16" />
         <div className="grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-3">
-          {data.map((item: grammar) => {
-            return (
-              <Link key={item.ID} href={`challenges/${item.ID}`}>
-                <ChallengeCard item={item} />
-              </Link>
-            );
-          })}
+          {data &&
+            data.map((item: grammar) => {
+              return (
+                <Link key={item.ID} href={`challenges/${item.ID}`}>
+                  <ChallengeCard item={item} />
+                </Link>
+              );
+            })}
         </div>
       </div>
       <Spacer height="h-24" />

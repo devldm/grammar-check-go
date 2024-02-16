@@ -6,7 +6,7 @@ import { User } from "@clerk/nextjs/server";
 import Image from "next/image";
 
 async function getUsersSolutions(id: string) {
-  const res = await fetch(`${process.env.API_BASE_URL}/solutions/${id}`);
+  const res = await fetch(`${process.env.API_BASE_URL}/solutions/user/${id}`);
 
   if (!res.ok) {
     throw new Error("Failed to fetch data");
