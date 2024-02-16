@@ -8,8 +8,8 @@ export default async function Home() {
   return (
     <main className="flex h-[80vh] flex-col justify-center items-center p-6 md:p-12 dark:text-white">
       <div className="w-full md:w-[60%] text-center">
-        <h1 className="text-5xl font-bold break-words md:text-7xl">
-          GrammarCheck
+        <h1 className="text-5xl font-bold text-pretty md:text-7xl">
+          Grammar Check
         </h1>
         <p className="text-lg italic text-white md:text-xl opacity-60">
           Your home for Korean grammar challenges
