@@ -6,7 +6,7 @@ import ChallengeForm from "@/app/components/ChallengeForm";
 import { currentUser } from "@clerk/nextjs";
 import { User } from "@clerk/nextjs/server";
 import { solutionWithUserData } from "@/types/solution";
-import Image from "next/image";
+import SolutionCard from "@/app/components/SolutionCard";
 
 async function getGrammarData(id: string) {
   const res = await fetch(`${process.env.API_BASE_URL}/grammars/${id}`);
@@ -68,31 +68,7 @@ export default async function Page({ params }: { params: { id: string } }) {
           <Spacer height="h-12" />
           <div className="grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-3 w-full">
             {solvedSolutions.map((solution: solutionWithUserData) => {
-              const dataFromCreatedAt = new Date(solution.CreatedAt);
-              const readableDate =
-                dataFromCreatedAt.toLocaleDateString("en-gb");
-              return (
-                <div
-                  key={solution.ID}
-                  className="border-2 border-black dark:border-white rounded-lg p-6 flex flex-col gap-2"
-                >
-                  <div className="flex items-center gap-1 flex-wrap">
-                    <Image
-                      src={solution.ClerkImage}
-                      alt="user profile image"
-                      width={"30"}
-                      height={"30"}
-                      className="rounded-full"
-                    />
-                    <p>{solution.ClerkUsername ?? "user"}</p>
-                    <p className="opacity-70 italic">
-                      solved {solution.Grammar}
-                    </p>
-                  </div>
-                  <h1>{solution.Solution}</h1>
-                  <p className="opacity-70">{readableDate}</p>
-                </div>
-              );
+              return <SolutionCard solution={solution} key={solution.ID} />;
             })}
           </div>
         </>

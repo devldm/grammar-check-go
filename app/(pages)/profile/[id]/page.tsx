@@ -1,6 +1,7 @@
 import ProfileSection from "@/app/components/ProfileSection";
 import Spacer from "@/app/components/Spacer";
 import { solution } from "@/types/solution";
+import { backendUser } from "@/types/user";
 import { currentUser } from "@clerk/nextjs";
 import { User } from "@clerk/nextjs/server";
 import Image from "next/image";

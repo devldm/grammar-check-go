@@ -1,4 +1,4 @@
-type backendUser = {
+export type backendUser = {
   ID: string;
   CreatedAt: string;
   UpdatedAt: string;
