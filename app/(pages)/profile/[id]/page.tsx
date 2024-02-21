@@ -1,10 +1,10 @@
 import ProfileSection from "@/app/components/ProfileSection";
+import SolutionCard from "@/app/components/SolutionCard";
 import Spacer from "@/app/components/Spacer";
 import { solution } from "@/types/solution";
 import { backendUser } from "@/types/user";
 import { currentUser } from "@clerk/nextjs";
 import { User } from "@clerk/nextjs/server";
-import Image from "next/image";
 
 async function getUsersSolutions(id: string) {
   const res = await fetch(`${process.env.API_BASE_URL}/solutions/user/${id}`);
@@ -43,30 +43,14 @@ export default async function Page({ params }: { params: { id: string } }) {
         <div className="grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-3">
           {solvedSolutions ? (
             solvedSolutions.map((solution: solution) => {
-              const dataFromCreatedAt = new Date(solution.CreatedAt);
-              const readableDate =
-                dataFromCreatedAt.toLocaleDateString("en-gb");
               return (
-                <div
+                <SolutionCard
+                  solution={solution}
+                  image={db_user.ClerkImage}
+                  username={db_user.ClerkUsername}
                   key={solution.ID}
-                  className="border-2 border-black dark:border-white rounded-lg p-6 flex flex-col gap-2"
-                >
-                  <div className="flex items-center gap-1 flex-wrap">
-                    <Image
-                      src={db_user.ClerkImage!}
-                      alt="user profile image"
-                      width={"30"}
-                      height={"30"}
-                      className="rounded-full"
-                    />
-                    <p>{db_user?.ClerkUsername ?? "user"}</p>
-                    <p className="opacity-70 italic">
-                      solved {solution.Grammar}
-                    </p>
-                  </div>
-                  <h1>{solution.Solution}</h1>
-                  <p className="opacity-70">{readableDate}</p>
-                </div>
+                  showOptionsToggle={isUserOnOwnProfile}
+                />
               );
             })
           ) : (

@@ -25,7 +25,7 @@ async function getHasSolved(grammarId: string) {
     `${process.env.API_BASE_URL}/solutions/${user?.id}/${grammarId}`,
     {
       method: "GET",
-    }
+    },
   );
 
   if (!res.ok) {
@@ -40,7 +40,7 @@ async function getSolutionsWithUserData(grammarId: string) {
     `${process.env.API_BASE_URL}/solutions/${grammarId}?limit=20`,
     {
       method: "GET",
-    }
+    },
   );
 
   if (!res.ok) {
@@ -68,7 +68,15 @@ export default async function Page({ params }: { params: { id: string } }) {
           <Spacer height="h-12" />
           <div className="grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-3 w-full">
             {solvedSolutions.map((solution: solutionWithUserData) => {
-              return <SolutionCard solution={solution} key={solution.ID} />;
+              return (
+                <SolutionCard
+                  image={solution.ClerkImage}
+                  solution={solution}
+                  username={solution.ClerkUsername}
+                  showOptionsToggle={false}
+                  key={solution.ID}
+                />
+              );
             })}
           </div>
         </>
