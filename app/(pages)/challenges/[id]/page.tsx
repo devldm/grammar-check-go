@@ -68,7 +68,14 @@ export default async function Page({ params }: { params: { id: string } }) {
           <Spacer height="h-12" />
           <div className="grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-3 w-full">
             {solvedSolutions.map((solution: solutionWithUserData) => {
-              return <SolutionCard solution={solution} key={solution.ID} />;
+              return (
+                <SolutionCard
+                  image={solution.ClerkImage}
+                  solution={solution}
+                  username={solution.ClerkUsername}
+                  key={solution.ID}
+                />
+              );
             })}
           </div>
         </>
