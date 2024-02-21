@@ -43,15 +43,13 @@ export default async function Page({ params }: { params: { id: string } }) {
         <div className="grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-3">
           {solvedSolutions ? (
             solvedSolutions.map((solution: solution) => {
-              const dataFromCreatedAt = new Date(solution.CreatedAt);
-              const readableDate =
-                dataFromCreatedAt.toLocaleDateString("en-gb");
               return (
                 <SolutionCard
                   solution={solution}
                   image={db_user.ClerkImage}
                   username={db_user.ClerkUsername}
                   key={solution.ID}
+                  showOptionsToggle={isUserOnOwnProfile}
                 />
               );
             })

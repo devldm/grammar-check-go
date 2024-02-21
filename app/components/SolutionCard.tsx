@@ -1,14 +1,17 @@
 import Image from "next/image";
 import { solution } from "@/types/solution";
+import OptionsToggle from "./OptionsToggle";
 
 export default function SolutionCard({
   solution,
   image,
   username,
+  showOptionsToggle,
 }: {
   solution: solution;
   image: string;
   username: string;
+  showOptionsToggle: boolean;
 }) {
   const dataFromCreatedAt = new Date(solution.CreatedAt);
   const readableDate = dataFromCreatedAt.toLocaleDateString("en-gb");
@@ -27,7 +30,10 @@ export default function SolutionCard({
         <p className="opacity-70 italic">solved {solution.Grammar}</p>
       </div>
       <h1>{solution.Solution}</h1>
-      <p className="opacity-70">{readableDate}</p>
+      <div className="flex items-center justify-between">
+        <p className="opacity-70">{readableDate}</p>
+        {showOptionsToggle && <OptionsToggle solutionId={solution.ID} />}
+      </div>
     </div>
   );
 }

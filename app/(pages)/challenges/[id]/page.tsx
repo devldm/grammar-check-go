@@ -25,7 +25,7 @@ async function getHasSolved(grammarId: string) {
     `${process.env.API_BASE_URL}/solutions/${user?.id}/${grammarId}`,
     {
       method: "GET",
-    }
+    },
   );
 
   if (!res.ok) {
@@ -40,7 +40,7 @@ async function getSolutionsWithUserData(grammarId: string) {
     `${process.env.API_BASE_URL}/solutions/${grammarId}?limit=20`,
     {
       method: "GET",
-    }
+    },
   );
 
   if (!res.ok) {
@@ -73,6 +73,7 @@ export default async function Page({ params }: { params: { id: string } }) {
                   image={solution.ClerkImage}
                   solution={solution}
                   username={solution.ClerkUsername}
+                  showOptionsToggle={false}
                   key={solution.ID}
                 />
               );
