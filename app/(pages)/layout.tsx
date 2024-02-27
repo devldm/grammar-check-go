@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { ClerkProvider, SignedIn, SignedOut } from "@clerk/nextjs";
-import Navbar from "../components/nav/Navbar";
 import Footer from "../components/Footer";
 import AuthdNavbar from "../components/nav/Navbar";
 import SignedOutNavbar from "../components/nav/SignedOutNav";

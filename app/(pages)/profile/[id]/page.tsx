@@ -20,7 +20,6 @@ async function getUser(clerkId: string) {
   const res = await fetch(`${process.env.API_BASE_URL}/user/${clerkId}`);
 
   if (!res.ok) {
-    console.log(res);
     throw new Error("Failed to fetch data");
   }
 
