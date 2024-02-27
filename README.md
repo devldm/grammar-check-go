@@ -12,6 +12,7 @@ Lets users practice korean grammar by posting solutions, comparing with others a
 - DaisyUI
 - tailwindcss
 - Clerk (user auth and account managment)
+- Playwright
 
 ## Screenshots
 ### Desktop
