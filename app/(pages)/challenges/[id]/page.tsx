@@ -65,7 +65,7 @@ export default async function Page({ params }: { params: { id: string } }) {
       <p className="text-2xl md:text-4xl text-left w-full">Solutions</p>
       {Boolean(hasSolved) ? (
         <>
-          <Spacer height="h-12" />
+          <Spacer height="h-6 md:h-12" />
           <div className="grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-3 w-full">
             {solvedSolutions.map((solution: solutionWithUserData) => {
               return (

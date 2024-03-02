@@ -17,7 +17,7 @@ export default function SolutionCard({
   const readableDate = dataFromCreatedAt.toLocaleDateString("en-gb");
 
   return (
-    <div className="border-2 border-black dark:border-white rounded-lg p-6 flex flex-col gap-2">
+    <div className="border-2 border-white rounded-lg p-6 flex flex-col gap-2">
       <div className="flex items-center gap-1 flex-wrap">
         <Image
           src={image}

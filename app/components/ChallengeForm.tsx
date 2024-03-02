@@ -6,16 +6,12 @@ import { useFormStatus } from "react-dom";
 import { postChallenge } from "../lib/submitForm";
 import { useRef } from "react";
 
-const initialState = {
-  message: "",
-};
-
 function SubmitButton() {
   const { pending } = useFormStatus();
 
   return (
     <button
-      className="btn btn-secondary rounded-md"
+      className="btn btn-secondary rounded-md w-full"
       type="submit"
       aria-disabled={pending}
     >
@@ -29,8 +25,8 @@ export default function ChallengeForm({ data }: { data: grammar }) {
   const updateSolutionWithGrammar = postChallenge.bind(null, data);
 
   return (
-    <div>
-      <p className="text-xl">Submit a solution and compare with others!</p>
+    <div className="w-full md:max-w-md">
+      <p className="text-lg md:text-xl">Submit a solution and compare with others!</p>
       <Spacer height="h-4" />
       <form
         action={async (formData) => {
