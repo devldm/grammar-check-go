@@ -10,13 +10,13 @@ export default function ProfileSection({
   isUserOnOwnProfile: boolean;
 }) {
   return (
-    <div className="w-full md:w-[90%] lg:w-[65%] flex items-center justify-between">
+    <div className="w-full flex items-center justify-between">
       <div className="flex flex-wrap justify-center gap-4 items-center">
         <Image
           src={user.ClerkImage}
           alt="user profile image"
-          width={"60"}
-          height={"60"}
+          width={"40"}
+          height={"40"}
           className="rounded-full"
         />
         <h1 className="text-xl md:text-3xl">{user.ClerkUsername}</h1>

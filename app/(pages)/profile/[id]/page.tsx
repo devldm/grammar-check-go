@@ -15,12 +15,12 @@ export default async function Page({ params }: { params: { id: string } }) {
   const isUserOnOwnProfile = params.id === user?.id;
 
   return (
-    <div className="flex min-h-[90vh] flex-col items-center p-6 md:p-12 dark:text-white">
+    <div className="flex min-h-[90vh] flex-col items-center p-6 md:p-12 w-full md:max-w-max mx-auto">
       <ProfileSection user={db_user!} isUserOnOwnProfile={isUserOnOwnProfile} />
       <Spacer height="h-6" />
-      <div className="flex gap-4 flex-col items-center max-w-max">
-        <h1 className="text-4xl self-start">My Solutions</h1>
-        <div className="grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-3">
+      <div className="flex gap-4 flex-col items-center w-full md:max-w-max">
+        <h1 className="text-xl md:text-3xl self-start">My Solutions</h1>
+        <div className="grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-3 w-full">
           {solvedSolutions ? (
             solvedSolutions.map((solution: solution) => {
               return (
