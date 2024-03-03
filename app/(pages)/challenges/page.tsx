@@ -2,21 +2,10 @@ import ChallengeCard from "@/app/components/ChallengeCard";
 import Spacer from "@/app/components/Spacer";
 import { grammar } from "@/types/grammar";
 import Link from "next/link";
-
-async function getData() {
-  const res = await fetch(`${process.env.API_BASE_URL}/grammars`, {
-    method: "GET",
-  });
-
-  if (!res.ok) {
-    throw new Error("Failed to fetch data");
-  }
-
-  return res.json();
-}
+import { getAllGrammars } from "@/app/data/grammar";
 
 export default async function Page() {
-  const data: grammar[] = await getData();
+  const data: grammar[] = await getAllGrammars()
   return (
     <main className="flex min-h-[90vh] flex-col items-center p-6 md:p-12 dark:text-white">
       <div className="max-w-max">
@@ -41,3 +30,4 @@ export default async function Page() {
     </main>
   );
 }
+

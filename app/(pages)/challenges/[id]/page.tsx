@@ -3,56 +3,14 @@ import LockIcon from "@/app/components/LockIcon";
 import Spacer from "@/app/components/Spacer";
 import { grammar } from "@/types/grammar";
 import ChallengeForm from "@/app/components/ChallengeForm";
-import { currentUser } from "@clerk/nextjs";
-import { User } from "@clerk/nextjs/server";
 import { solutionWithUserData } from "@/types/solution";
 import SolutionCard from "@/app/components/SolutionCard";
-
-async function getGrammarData(id: string) {
-  const res = await fetch(`${process.env.API_BASE_URL}/grammars/${id}`);
-
-  if (!res.ok) {
-    throw new Error("Failed to fetch data");
-  }
-
-  return res.json();
-}
-
-async function getHasSolved(grammarId: string) {
-  const user: User | null = await currentUser();
-
-  const res = await fetch(
-    `${process.env.API_BASE_URL}/solutions/${user?.id}/${grammarId}`,
-    {
-      method: "GET",
-    },
-  );
-
-  if (!res.ok) {
-    throw new Error("Failed to fetch data");
-  }
-
-  return await res.json();
-}
-
-async function getSolutionsWithUserData(grammarId: string) {
-  const res = await fetch(
-    `${process.env.API_BASE_URL}/solutions/${grammarId}?limit=20`,
-    {
-      method: "GET",
-    },
-  );
-
-  if (!res.ok) {
-    throw new Error("Failed to fetch data");
-  }
-
-  return res.json();
-}
+import { getHasUserSolvedGrammar, getGrammarById } from "@/app/data/grammar";
+import { getSolutionsWithUserData } from "@/app/data/solutions";
 
 export default async function Page({ params }: { params: { id: string } }) {
-  const data: grammar = await getGrammarData(params.id);
-  const hasSolved = await getHasSolved(data.ID);
+  const data: grammar = await getGrammarById(params.id);
+  const hasSolved = await getHasUserSolvedGrammar(data.ID);
   const solvedSolutions: solutionWithUserData[] =
     Boolean(hasSolved) && (await getSolutionsWithUserData(params.id));
 
