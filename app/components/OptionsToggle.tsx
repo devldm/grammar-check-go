@@ -5,7 +5,7 @@ import { deleteSolution } from "../lib/deleteSolution";
 
 export default function OptionsToggle({ solutionId }: { solutionId: string }) {
   return (
-    <div className="dropdown dropdown-bottom dropdown-end">
+    <div className="dropdown dropdown-bottom dropdown-end z-[-1]">
       <div
         tabIndex={0}
         role="button"

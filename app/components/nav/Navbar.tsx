@@ -1,11 +1,11 @@
-import { SignedIn, UserButton, currentUser } from "@clerk/nextjs";
+import { UserButton, currentUser } from "@clerk/nextjs";
 import { User } from "@clerk/nextjs/server";
 import Link from "next/link";
 
 export default async function AuthdNavbar() {
   const user: User | null = await currentUser();
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar top-0 fixed bg-base-100 z-100">
       <div className="flex-1">
         <Link href={"/"} className="btn btn-ghost text-xl">
           GrammarCheck

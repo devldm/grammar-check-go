@@ -27,11 +27,11 @@ export default function SolutionCard({
           className="rounded-full"
         />
         <p>{username ?? "user"}</p>
-        <p className="opacity-70 italic">solved {solution.Grammar}</p>
+        <p className="italic">solved {solution.Grammar}</p>
       </div>
       <h1>{solution.Solution}</h1>
       <div className="flex items-center justify-between">
-        <p className="opacity-70">{readableDate}</p>
+        <p>{readableDate}</p>
         {showOptionsToggle && <OptionsToggle solutionId={solution.ID} />}
       </div>
     </div>

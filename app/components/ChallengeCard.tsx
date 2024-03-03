@@ -7,8 +7,8 @@ export default function ChallengeCard({ item }: { item: grammar }) {
       <h1 className="text-lg font-bold md:text-2xl">{item.Grammar}</h1>
       <p className="dark:text-[#e6e6e6]">{item.Description.String}</p>
       <Spacer height="h-2 md:h-4" />
-      <div className="text-sm border-2 border-orange-500 max-w-max p-2 rounded-full">
-        <p>{item.Difficulty.String}</p>
+      <div className="text-sm text-orange-500 bg-gray-700 max-w-max px-2 py-1 rounded-full">
+        <p className="font-medium">{item.Difficulty.String}</p>
       </div>
     </div>
   );

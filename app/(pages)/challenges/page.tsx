@@ -9,8 +9,8 @@ export default async function Page() {
   return (
     <main className="flex min-h-[90vh] flex-col items-center p-6 md:p-12 dark:text-white">
       <div className="max-w-max">
-        <h1 className="text-4xl">Challenges</h1>
-        <Spacer height="h-16" />
+        <h1 className="text-2xl md:text-4xl">Challenges</h1>
+        <Spacer height="h-4" />
         <div className="grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-3">
           {data ? (
             data.map((item: grammar) => {
@@ -25,8 +25,7 @@ export default async function Page() {
           )}
         </div>
       </div>
-      <Spacer height="h-24" />
-      <h2 className="text-4xl">More coming soon...</h2>
+      <h2 className="text-2xl md:text-4xl py-12">More coming soon...</h2>
     </main>
   );
 }
