@@ -28,7 +28,7 @@ export default function RootLayout({
           <SignedOut>
             <SignedOutNavbar />
           </SignedOut>
-          <main className="pt-10">
+          <main className="pt-14">
             {children}
           </main>
           <Footer />
