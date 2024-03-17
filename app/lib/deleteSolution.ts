@@ -2,7 +2,7 @@
 
 import { revalidatePath } from "next/cache";
 
-export async function deleteSolution(id: string) {
+export async function deleteSolution(id: string, userId: string) {
   const postBody = {
     id: id,
   };
@@ -12,5 +12,5 @@ export async function deleteSolution(id: string) {
     body: JSON.stringify(postBody),
   });
 
-  revalidatePath("/profile");
+  revalidatePath(`/profile/${userId}`);
 }

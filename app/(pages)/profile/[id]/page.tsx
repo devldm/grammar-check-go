@@ -30,6 +30,7 @@ export default async function Page({ params }: { params: { id: string } }) {
                   username={db_user.ClerkUsername}
                   key={solution.ID}
                   showOptionsToggle={isUserOnOwnProfile}
+                  userId={params.id}
                 />
               );
             })

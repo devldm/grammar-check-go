@@ -7,11 +7,13 @@ export default function SolutionCard({
   image,
   username,
   showOptionsToggle,
+  userId,
 }: {
   solution: solution;
   image: string;
   username: string;
   showOptionsToggle: boolean;
+  userId: string;
 }) {
   const dataFromCreatedAt = new Date(solution.CreatedAt);
   const readableDate = dataFromCreatedAt.toLocaleDateString("en-gb");
@@ -32,7 +34,9 @@ export default function SolutionCard({
       <h1>{solution.Solution}</h1>
       <div className="flex items-center justify-between">
         <p>{readableDate}</p>
-        {showOptionsToggle && <OptionsToggle solutionId={solution.ID} />}
+        {showOptionsToggle && (
+          <OptionsToggle solutionId={solution.ID} userId={userId} />
+        )}
       </div>
     </div>
   );
