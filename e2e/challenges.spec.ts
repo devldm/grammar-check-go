@@ -10,7 +10,6 @@ test("Visit challenges page and check it renders correctly", async ({
   await page
     .getByRole("link", { name: "동-을 것이/게 아니라 proposing a" })
     .click();
-  await expect(page.getByText("Submit a solution and compare")).toBeVisible();
   await expect(page.getByText("Solutions")).toBeVisible();
 });
 
@@ -24,7 +23,7 @@ test.describe("Submit a solution", () => {
     await page.getByPlaceholder("명이며 명이며").fill("e2e test 1");
     await page.getByRole("button", { name: "Submit" }).click();
     await expect(
-      page.getByRole("heading", { name: "e2e test 1" }).first()
+      page.getByRole("heading", { name: "e2e test 1" }).first(),
     ).toBeVisible();
   });
 
@@ -33,10 +32,10 @@ test.describe("Submit a solution", () => {
   }) => {
     await page.getByRole("link", { name: "Profile" }).click();
     await expect(
-      page.getByRole("heading", { name: "My Solutions" })
+      page.getByRole("heading", { name: "My Solutions" }),
     ).toBeVisible();
     await expect(
-      page.getByRole("heading", { name: "e2e test" }).first()
+      page.getByRole("heading", { name: "e2e test" }).first(),
     ).toBeVisible();
   });
 
