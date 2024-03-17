@@ -26,8 +26,7 @@ export default function ChallengeForm({ data }: { data: grammar }) {
 
   return (
     <div className="w-full md:max-w-md">
-      <p className="md:text-xl">Submit a solution and compare with others!</p>
-      <Spacer height="h-4" />
+      <Spacer height="h-2 md:h-4" />
       <form
         action={async (formData) => {
           await updateSolutionWithGrammar(formData);
