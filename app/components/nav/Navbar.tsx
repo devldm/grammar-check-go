@@ -5,7 +5,7 @@ import Link from "next/link";
 export default async function AuthdNavbar() {
   const user: User | null = await currentUser();
   return (
-    <div className="navbar top-0 fixed bg-base-100 z-100">
+    <div className="navbar top-0 fixed bg-base-100 z-50">
       <div className="flex-1">
         <Link href={"/"} className="btn btn-ghost text-xl">
           GrammarCheck

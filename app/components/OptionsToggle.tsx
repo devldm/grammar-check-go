@@ -5,7 +5,7 @@ import { deleteSolution } from "../lib/deleteSolution";
 
 export default function OptionsToggle({ solutionId }: { solutionId: string }) {
   return (
-    <div className="dropdown dropdown-bottom dropdown-end z-[-1]">
+    <div className="dropdown dropdown-bottom dropdown-end">
       <div
         tabIndex={0}
         role="button"
@@ -15,7 +15,7 @@ export default function OptionsToggle({ solutionId }: { solutionId: string }) {
       </div>
       <ul
         tabIndex={0}
-        className="dropdown-content z-[1] menu p-2 shadow rounded-box w-52 bg-neutral"
+        className="dropdown-content menu p-2 shadow rounded-box w-52 bg-neutral"
       >
         <li onClick={async () => await deleteSolution(solutionId)}>
           <a className="text-red-500">delete</a>
