@@ -13,7 +13,7 @@ export default function SolutionCard({
   image: string;
   username: string;
   showOptionsToggle: boolean;
-  userId: string;
+  userId?: string;
 }) {
   const dataFromCreatedAt = new Date(solution.CreatedAt);
   const readableDate = dataFromCreatedAt.toLocaleDateString("en-gb");
@@ -34,7 +34,7 @@ export default function SolutionCard({
       <h1>{solution.Solution}</h1>
       <div className="flex items-center justify-between">
         <p>{readableDate}</p>
-        {showOptionsToggle && (
+        {showOptionsToggle && userId && (
           <OptionsToggle solutionId={solution.ID} userId={userId} />
         )}
       </div>
