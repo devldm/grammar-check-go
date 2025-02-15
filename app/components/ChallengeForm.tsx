@@ -35,6 +35,7 @@ export default function ChallengeForm({ data }: { data: grammar }) {
         ref={ref}
       >
         <textarea
+          maxLength={130}
           id="solution"
           name="solution"
           required={true}

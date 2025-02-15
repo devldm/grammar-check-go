@@ -19,7 +19,7 @@ export default function SolutionCard({
   const readableDate = dataFromCreatedAt.toLocaleDateString("en-gb");
 
   return (
-    <div className="border-2 border-white rounded-lg p-6 flex flex-col gap-2">
+    <div className="border-2 border-white rounded-lg p-6 flex flex-col gap-2 ">
       <div className="flex items-center gap-1 flex-wrap">
         <Image
           src={image}
@@ -31,7 +31,7 @@ export default function SolutionCard({
         <p>{username ?? "user"}</p>
         <p className="italic">solved {solution.Grammar}</p>
       </div>
-      <h1>{solution.Solution}</h1>
+      <h1 className="break-words">{solution.Solution}</h1>
       <div className="flex items-center justify-between">
         <p>{readableDate}</p>
         {showOptionsToggle && userId && (

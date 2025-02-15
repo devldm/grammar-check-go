@@ -1,5 +1,5 @@
-import { SignedIn, SignedOut, currentUser } from "@clerk/nextjs";
-import { User } from "@clerk/nextjs/server";
+import { SignedIn, SignedOut } from "@clerk/nextjs";
+import { User, currentUser } from "@clerk/nextjs/server";
 import Link from "next/link";
 
 export default async function Home() {
@@ -9,10 +9,14 @@ export default async function Home() {
     <main className="flex h-[80vh] flex-col justify-center items-center p-6 md:p-12 dark:text-white">
       <div className="w-full md:w-[60%] text-center">
         <h1 className="text-4xl font-semibold text-center md:text-7xl">
-          Want to learn <span className="max-w-max bg-gradient-to-r from-emerald-200 via-emerald-500 to-green-400 inline-block text-transparent bg-clip-text ">Korean Grammar?</span>
+          Want to learn{" "}
+          <span className="max-w-max bg-gradient-to-r from-emerald-200 via-emerald-500 to-green-400 inline-block text-transparent bg-clip-text ">
+            Korean Grammar?
+          </span>
         </h1>
         <p className="text-white md:text-xl pt-4">
-          We make grammar less boring and bring the communities knowledge together.
+          We make grammar less boring and bring the communities knowledge
+          together.
         </p>
         <div className="mt-6">
           <SignedIn>

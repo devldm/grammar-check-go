@@ -3,7 +3,7 @@ import SolutionCard from "@/app/components/SolutionCard";
 import Spacer from "@/app/components/Spacer";
 import { solution } from "@/types/solution";
 import { backendUser } from "@/types/user";
-import { currentUser } from "@clerk/nextjs";
+import { currentUser } from "@clerk/nextjs/server";
 import { User } from "@clerk/nextjs/server";
 import { getUsersSolutions, getUser } from "@/app/data/user";
 
@@ -15,7 +15,7 @@ export default async function Page({ params }: { params: { id: string } }) {
   const isUserOnOwnProfile = params.id === user?.id;
 
   return (
-    <div className="flex min-h-[90vh] flex-col items-center p-6 md:p-12 w-full md:max-w-max mx-auto">
+    <div className="flex min-h-[90vh] flex-col items-center p-6 md:p-12 w-full md:max-w-max mx-auto xl:max-w-[60%]">
       <ProfileSection user={db_user!} isUserOnOwnProfile={isUserOnOwnProfile} />
       <Spacer height="h-6" />
       <div className="flex gap-4 flex-col items-center w-full md:max-w-max">

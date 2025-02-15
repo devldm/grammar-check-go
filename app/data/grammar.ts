@@ -1,11 +1,12 @@
-"use server"
+"use server";
 
-import { currentUser } from "@clerk/nextjs";
+import { currentUser } from "@clerk/nextjs/server";
 import { User } from "@clerk/nextjs/server";
 
 export async function getAllGrammars() {
   const res = await fetch(`${process.env.API_BASE_URL}/grammars`, {
     method: "GET",
+    cache: "no-store",
   });
 
   if (!res.ok) {
@@ -41,7 +42,3 @@ export async function getHasUserSolvedGrammar(grammarId: string) {
 
   return await res.json();
 }
-
-
-
-

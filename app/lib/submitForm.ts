@@ -2,8 +2,7 @@
 
 import { grammar } from "@/types/grammar";
 import { solutionPost } from "@/types/solution";
-import { currentUser } from "@clerk/nextjs";
-import { User } from "@clerk/nextjs/server";
+import { User, currentUser } from "@clerk/nextjs/server";
 import { revalidatePath } from "next/cache";
 
 export async function postChallenge(grammarData: grammar, formData: FormData) {
