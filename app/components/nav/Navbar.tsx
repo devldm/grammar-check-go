@@ -1,5 +1,5 @@
-import { UserButton, currentUser } from "@clerk/nextjs";
-import { User } from "@clerk/nextjs/server";
+import { UserButton } from "@clerk/nextjs";
+import { User, currentUser } from "@clerk/nextjs/server";
 import Link from "next/link";
 
 export default async function AuthdNavbar() {

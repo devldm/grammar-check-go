@@ -12,9 +12,11 @@
     "test:e2e:report": "npx playwright show-report"
   },
   "dependencies": {
-    "@clerk/nextjs": "^4.29.5",
+    "@clerk/nextjs": "^6.11.3",
+    "clsx": "^2.1.1",
     "dotenv": "^16.4.5",
-    "next": "14.1.0",
+    "lucide-react": "^0.475.0",
+    "next": "^14.2.24",
     "react": "^18",
     "react-dom": "^18",
     "svix": "^1.16.0"
