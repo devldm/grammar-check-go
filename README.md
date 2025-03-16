@@ -1,7 +1,5 @@
 # GrammarCheck Frontend application
 
-Visit the site [here](https://grammar-check-go.vercel.app/).
-
 The code for the backend portion of this application can be found [here](https://github.com/devldm/grammar-check-go-api).
 
 Lets users practice korean grammar by posting solutions, comparing with others and receiving comments from other users.
