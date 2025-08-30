@@ -6,39 +6,47 @@ export default async function Home() {
   const user: User | null = await currentUser();
 
   return (
-    <main className="flex h-[80vh] flex-col justify-center items-center p-6 md:p-12 dark:text-white">
-      <div className="w-full md:w-[60%] text-center">
-        <h1 className="text-4xl font-semibold text-center md:text-7xl">
-          Want to learn{" "}
-          <span className="max-w-max bg-linear-to-r from-emerald-200 via-emerald-500 to-green-400 inline-block text-transparent bg-clip-text ">
-            Korean Grammar?
-          </span>
-        </h1>
-        <p className="text-white md:text-xl pt-4">
-          We make grammar less boring and bring the communities knowledge
-          together.
-        </p>
-        <div className="mt-6">
-          <SignedIn>
-            <Link href={"/challenges"}>
-              <button className="btn btn-secondary rounded-md mr-4">
-                Challenges
-              </button>
-            </Link>
-            <Link href={`/profile/${user?.id}`}>
-              <button className="btn btn-secondary rounded-md">Profile</button>
-            </Link>
-          </SignedIn>
-          <SignedOut>
-            <Link href={"/sign-in"}>
-              <button className="btn btn-secondary rounded-md mr-4">
-                Sign-in
-              </button>
-            </Link>
-            <Link href={"/sign-up"}>
-              <button className="btn btn-secondary rounded-md">Sign-up</button>
-            </Link>
-          </SignedOut>
+    <main className="hero min-h-[80vh] bg-base-100">
+      <div className="hero-content text-center max-w-4xl px-6 md:px-12">
+        <div className="max-w-none">
+          <h1 className="text-4xl md:text-7xl font-bold mb-6">
+            Want to learn{" "}
+            <span className="text-primary bg-gradient-to-r from-primary/80 via-primary to-primary/90 bg-clip-text text-transparent">
+              Korean Grammar?
+            </span>
+          </h1>
+
+          <p className="text-base-content/80 text-lg md:text-xl mb-8 max-w-2xl mx-auto leading-relaxed">
+            We make grammar less boring and bring the communities knowledge
+            together.
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <SignedIn>
+              <Link href={"/challenges"}>
+                <button className="btn btn-primary btn-lg w-full sm:w-auto">
+                  Start Challenges
+                </button>
+              </Link>
+              <Link href={`/profile/${user?.id}`}>
+                <button className="btn btn-outline btn-lg w-full sm:w-auto">
+                  View Profile
+                </button>
+              </Link>
+            </SignedIn>
+            <SignedOut>
+              <Link href={"/sign-in"}>
+                <button className="btn btn-primary btn-lg w-full sm:w-auto">
+                  Sign In
+                </button>
+              </Link>
+              <Link href={"/sign-up"}>
+                <button className="btn btn-outline btn-lg w-full sm:w-auto">
+                  Sign Up
+                </button>
+              </Link>
+            </SignedOut>
+          </div>
         </div>
       </div>
     </main>

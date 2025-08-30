@@ -10,22 +10,29 @@ export default function ProfileSection({
   isUserOnOwnProfile: boolean;
 }) {
   return (
-    <div className="w-full flex items-center justify-between">
-      <div className="flex flex-wrap justify-center gap-4 items-center">
-        <Image
-          src={user.ClerkImage}
-          alt="user profile image"
-          width={"40"}
-          height={"40"}
-          className="rounded-full"
-        />
-        <h1 className="text-xl md:text-3xl">{user.ClerkUsername}</h1>
+    <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 mb-6">
+      <div className="flex items-center gap-4">
+        <div className="avatar">
+          <div className="w-12 h-12 md:w-16 md:h-16 rounded-full">
+            <Image
+              src={user.ClerkImage}
+              alt="user profile image"
+              width={64}
+              height={64}
+              className="rounded-full object-cover"
+            />
+          </div>
+        </div>
+        <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-base-content">
+          {user.ClerkUsername}
+        </h1>
       </div>
-
       {isUserOnOwnProfile && (
-        <SignOutButton>
-          <button className="btn btn-secondary rounded-md">Sign out</button>
-        </SignOutButton>
+        <div className="flex-shrink-0">
+          <SignOutButton>
+            <button className="btn btn-outline btn-sm">Sign out</button>
+          </SignOutButton>
+        </div>
       )}
     </div>
   );
