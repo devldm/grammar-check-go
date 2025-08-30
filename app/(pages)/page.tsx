@@ -10,7 +10,7 @@ export default async function Home() {
       <div className="w-full md:w-[60%] text-center">
         <h1 className="text-4xl font-semibold text-center md:text-7xl">
           Want to learn{" "}
-          <span className="max-w-max bg-gradient-to-r from-emerald-200 via-emerald-500 to-green-400 inline-block text-transparent bg-clip-text ">
+          <span className="max-w-max bg-linear-to-r from-emerald-200 via-emerald-500 to-green-400 inline-block text-transparent bg-clip-text ">
             Korean Grammar?
           </span>
         </h1>
