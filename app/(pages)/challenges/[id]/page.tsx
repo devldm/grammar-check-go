@@ -14,7 +14,7 @@ export default async function Page({ params }: { params: { id: string } }) {
     Boolean(hasSolved) && (await getSolutionsWithUserData(params.id));
 
   return (
-    <div className="min-h-screen w-full mx-auto flex flex-col px-4 sm:px-6 lg:px-8 py-6 lg:py-8 max-w-6xl">
+    <div className="min-h-screen w-full mx-auto flex flex-col p-6 md:p-12 max-w-6xl">
       <div className="w-full mb-8 lg:mb-12">
         <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-4 mb-6">
           <div className="flex-1 min-w-0">

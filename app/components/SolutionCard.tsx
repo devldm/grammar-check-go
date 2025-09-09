@@ -18,13 +18,13 @@ export default function SolutionCard({
   return (
     <div
       key={solution.ID}
-      className="card bg-base-200 border border-base-300 max-h-[200px] hover:bg-base-100 overflow-y-scroll  hover:shadow-lg transition-all duration-300"
+      className="card bg-base-200 border border-base-300 max-h-[200px] hover:bg-base-100 hover:shadow-lg transition-all duration-300"
     >
       <div className="card-body p-6 flex flex-col justify-between h-full">
         <div className="flex items-start justify-between gap-4">
           <div className="flex-1">
-            <h3 className="text-base-content text-lg font-medium mb-3 leading-relaxed break-all ">
-              <>{solution.Solution}</>
+            <h3 className="text-base-content text-lg font-medium mb-3 leading-relaxed break-all overflow-y-scroll max-h-[100px]">
+              {solution.Solution}
             </h3>
           </div>
           <div className="text-base-content/50 text-sm font-medium">
