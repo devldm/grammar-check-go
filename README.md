@@ -13,9 +13,8 @@ Lets users practice korean grammar by posting solutions, comparing with others a
 - Playwright
 
 ## Screenshots
-### Desktop
-![image](https://github.com/devldm/grammar-check-go/assets/39243060/cafb4a69-e767-40d4-8b57-cd4c65c39201)
-![Screenshot 2024-01-29 at 21-00-03 GrammarCheck](https://github.com/devldm/grammar-check-go/assets/39243060/52e01888-55f7-46fd-bb90-3eca639dc932)
 ### Mobile
-![image](https://github.com/devldm/grammar-check-go/assets/39243060/5e400718-0c69-4231-9c34-3a6e625463f4)
+<img width="250" height="500" alt="Screen Shot 2025-08-17 at 21 18 28" src="https://github.com/user-attachments/assets/1335b3dc-a156-4809-b28d-686bb99acd9c" />
+<img width="250" height="500" alt="Screen Shot 2025-09-22 at 07 00 30" src="https://github.com/user-attachments/assets/0fc5c120-4498-44e5-98fd-5886454a05c8" />
+
 
